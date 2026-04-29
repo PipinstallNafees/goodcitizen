@@ -1,0 +1,187 @@
+/* --- Modernized Civic Variables --- */
+:root {
+  --primary: #0d6efd;
+  --primary-hover: #0a58ca;
+  --bg-soft: #f8f9fa;
+  --text-main: #212529;
+  --text-muted: #6c757d;
+  --border-light: #e9ecef;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+}
+
+/* --- Beautiful Counter Button --- */
+.counter {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px; /* Pill shape */
+  color: var(--primary);
+  background: white;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 24px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* --- Hero with Depth (The Logo Area) --- */
+.hero {
+  position: relative;
+  padding: 40px 0;
+
+  .base {
+    width: 180px;
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.1));
+    z-index: 1;
+    transition: transform 0.5s ease;
+  }
+
+  /* Adding a subtle float animation to the icons */
+  .framework, .vite {
+    position: absolute;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+    animation: float 4s infinite ease-in-out;
+  }
+
+  .framework {
+    z-index: 2;
+    top: 30px;
+    left: 10%;
+    height: 40px;
+    transform: perspective(1000px) rotateY(15deg);
+  }
+
+  .vite {
+    z-index: 2;
+    bottom: 20px;
+    right: 10%;
+    height: 35px;
+    animation-delay: 2s;
+  }
+}
+
+/* --- Center Layout --- */
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    padding: 40px 20px;
+    gap: 20px;
+  }
+}
+
+/* --- Next Steps (The Cards Section) --- */
+#next-steps {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 40px 20px;
+
+  & > div {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  .icon {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    display: block;
+  }
+
+  h2, h3 {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+/* --- Social & Link Buttons --- */
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+
+  a {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: white;
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+}
+
+/* --- Decorative Ticks (The "Ruler" Line) --- */
+.ticks {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: var(--border-light);
+  margin: 40px 0;
+
+  &::before, &::after {
+    content: '•';
+    position: absolute;
+    top: -12px;
+    color: var(--primary);
+    font-size: 20px;
+  }
+
+  &::before { left: 0; }
+  &::after { right: 0; }
+}
+
+/* --- Animations --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
